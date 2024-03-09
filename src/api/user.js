@@ -1,8 +1,8 @@
 import request from '@/utils/request'
 
-// 登录函数
+// login
 /**
- * @description: 登录函数
+ * @description: login
  * @param {*} data { mobile,password}
  * @return {*} promise
  */
@@ -10,6 +10,28 @@ export function loginAPI(data) {
   return request({
     url: '/park/login',
     method: 'POST',
-    data
+    data: data
+  })
+}
+/**
+ * 
+ * @param {*} params {name:String, page:String,pageSize: String}
+ * @returns 
+ */
+export function getEnterpriseListAPI(params){
+  return request({
+    url: '/park/enterprise',
+    method: 'GET',
+    params
+  })
+}
+/**
+ * @param {*} id string
+ * @returns 
+ */
+export function delEnterpriseAPI(){
+  return request({
+    url:'/park/enterprise/${id}',
+    method: 'DELETE'
   })
 }

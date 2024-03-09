@@ -23,24 +23,24 @@ export const routes = [
     children: [{
       path: '',
       component: () => import('@/views/Workbench/index'),
-      meta: { title: '工作台', icon: 'el-icon-data-board' }
+      meta: { title: 'Workbench', icon: 'el-icon-data-board' }
     }]
   },
   {
     path: '/park',
     component: Layout,
     permission: 'park',
-    meta: { title: '园区管理', icon: 'el-icon-office-building' },
+    meta: { title: 'Park Management', icon: 'el-icon-office-building' },
     children: [{
       path: 'building',
       permission: 'park:building',
-      meta: { title: '楼宇管理' },
+      meta: { title: 'Building Management' },
       component: () => import('@/views/Park/Building/index')
     },
     {
       path: 'enterprise',
       permission: 'park:enterprise',
-      meta: { title: '企业管理' },
+      meta: { title: 'Enterprise Management' },
       component: () => import('@/views/Park/Enterprise/index')
     }]
   },
@@ -49,62 +49,62 @@ export const routes = [
     path: '/parking',
     component: Layout,
     permission: 'parking',
-    meta: { title: '行车管理', icon: 'el-icon-guide' },
+    meta: { title: 'Parking Management', icon: 'el-icon-guide' },
     children: [{
       path: 'area',
       permission: 'parking:area',
       component: () => import('@/views/Car/CarArea'),
-      meta: { title: '区域管理' }
+      meta: { title: 'Spot Management' }
     }, {
       path: 'card',
       permission: 'parking:card',
       component: () => import('@/views/Car/CarCard'),
-      meta: { title: '月卡管理' }
+      meta: { title: 'Card Management' }
     }, {
       path: 'pay',
       permission: 'parking:payment',
       component: () => import('@/views/Car/CarPay'),
-      meta: { title: '停车缴费管理' }
+      meta: { title: 'Payment Management' }
     },
     {
       path: 'rule',
       permission: 'parking:rule',
       component: () => import('@/views/Car/CarRule'),
-      meta: { title: '计费规则管理' }
+      meta: { title: 'Parking Rule' }
     }]
   },
   {
     path: '/pole',
     component: Layout,
     permission: 'pole',
-    meta: { title: '一体杆管理', icon: 'el-icon-refrigerator' },
+    meta: { title: 'Pole Management', icon: 'el-icon-refrigerator' },
     children: [{
       path: 'info',
       permission: 'pole:info',
       component: () => import('@/views/Rod/RodManage'),
-      meta: { title: '一体杆管理' }
+      meta: { title: 'Pole Management' }
     }, {
       path: 'waring',
       permission: 'pole:warning',
       component: () => import('@/views/Rod/RodWarn'),
-      meta: { title: '告警记录' }
+      meta: { title: 'Warning List' }
     }]
   },
   {
     path: '/sys',
     component: Layout,
     permission: 'sys',
-    meta: { title: '系统管理', icon: 'el-icon-setting' },
+    meta: { title: 'System Management', icon: 'el-icon-setting' },
     children: [{
       path: 'role',
       permission: 'sys:role',
       component: () => import('@/views/System/Role/index'),
-      meta: { title: '角色管理' }
+      meta: { title: 'Role Management' }
     }, {
       path: 'user',
       permission: 'sys:user',
       component: () => import('@/views/System/Employee/index'),
-      meta: { title: '员工管理' }
+      meta: { title: 'Employee Management' }
     }]
   },
   {
@@ -123,11 +123,11 @@ const createRouter = () => new Router({
 
 const router = createRouter()
 
-// 重置路由方法
+// reset router
 export function resetRouter() {
-  // 得到一个全新的router实例对象
+  // create a new router object
   const newRouter = createRouter()
-  // 使用新的路由记录覆盖掉老的路由记录
+  // override the old router
   router.matcher = newRouter.matcher
 }
 
